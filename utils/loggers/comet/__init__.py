@@ -9,8 +9,8 @@ logger = logging.getLogger(__name__)
 
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[3]  # YOLOv5 root directory
-if str(ROOT) not in sys.path:
-    sys.path.append(str(ROOT))  # add ROOT to PATH
+# if str(ROOT) not in sys.path:
+#     sys.path.append(str(ROOT))  # add ROOT to PATH
 
 try:
     import comet_ml
@@ -27,9 +27,9 @@ import torch
 import torchvision.transforms as T
 import yaml
 
-from utils.dataloaders import img2label_paths
-from utils.general import check_dataset, scale_boxes, xywh2xyxy
-from utils.metrics import box_iou
+from yolo_v5.utils.dataloaders import img2label_paths
+from yolo_v5.utils.general import check_dataset, scale_boxes, xywh2xyxy
+from yolo_v5.utils.metrics import box_iou
 
 COMET_PREFIX = "comet://"
 

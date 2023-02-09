@@ -9,12 +9,12 @@ import sys
 from contextlib import contextmanager
 from pathlib import Path
 
-from utils.general import LOGGER, colorstr
+from yolo_v5.utils.general import LOGGER, colorstr
 
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[3]  # YOLOv5 root directory
-if str(ROOT) not in sys.path:
-    sys.path.append(str(ROOT))  # add ROOT to PATH
+# if str(ROOT) not in sys.path:
+#     sys.path.append(str(ROOT))  # add ROOT to PATH
 RANK = int(os.getenv('RANK', -1))
 DEPRECATION_WARNING = f"{colorstr('wandb')}: WARNING ⚠️ wandb is deprecated and will be removed in a future release. " \
                       f"See supported integrations at https://github.com/ultralytics/yolov5#integrations."

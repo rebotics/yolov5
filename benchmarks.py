@@ -35,17 +35,17 @@ import pandas as pd
 
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[0]  # YOLOv5 root directory
-if str(ROOT) not in sys.path:
-    sys.path.append(str(ROOT))  # add ROOT to PATH
+# if str(ROOT) not in sys.path:
+#     sys.path.append(str(ROOT))  # add ROOT to PATH
 # ROOT = ROOT.relative_to(Path.cwd())  # relative
 
 import export
-from models.experimental import attempt_load
-from models.yolo import SegmentationModel
+from yolo_v5.models.experimental import attempt_load
+from yolo_v5.models.yolo import SegmentationModel
 from segment.val import run as val_seg
-from utils import notebook_init
-from utils.general import LOGGER, check_yaml, file_size, print_args
-from utils.torch_utils import select_device
+from yolo_v5.utils import notebook_init
+from yolo_v5.utils.general import LOGGER, check_yaml, file_size, print_args
+from yolo_v5.utils.torch_utils import select_device
 from val import run as val_det
 
 
