@@ -37,14 +37,14 @@ ROOT = FILE.parents[1]  # YOLOv5 root directory
 ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
 from classify import val as validate
-from yolo_v5.models.experimental import attempt_load
-from yolo_v5.models.yolo import ClassificationModel, DetectionModel
-from yolo_v5.utils.dataloaders import create_classification_dataloader
-from yolo_v5.utils.general import (DATASETS_DIR, LOGGER, TQDM_BAR_FORMAT, WorkingDirectory, check_git_info, check_git_status,
+from yolov5.models.experimental import attempt_load
+from yolov5.models.yolo import ClassificationModel, DetectionModel
+from yolov5.utils.dataloaders import create_classification_dataloader
+from yolov5.utils.general import (DATASETS_DIR, LOGGER, TQDM_BAR_FORMAT, WorkingDirectory, check_git_info, check_git_status,
                            check_requirements, colorstr, download, increment_path, init_seeds, print_args, yaml_save)
-from yolo_v5.utils.loggers import GenericLogger
-from yolo_v5.utils.plots import imshow_cls
-from yolo_v5.utils.torch_utils import (ModelEMA, model_info, reshape_classifier_output, select_device, smart_DDP,
+from yolov5.utils.loggers import GenericLogger
+from yolov5.utils.plots import imshow_cls
+from yolov5.utils.torch_utils import (ModelEMA, model_info, reshape_classifier_output, select_device, smart_DDP,
                                smart_optimizer, smartCrossEntropyLoss, torch_distributed_zero_first)
 
 LOCAL_RANK = int(os.getenv('LOCAL_RANK', -1))  # https://pytorch.org/docs/stable/elastic/run.html

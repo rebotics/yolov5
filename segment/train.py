@@ -40,23 +40,23 @@ ROOT = FILE.parents[1]  # YOLOv5 root directory
 ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
 import segment.val as validate  # for end-of-epoch mAP
-from yolo_v5.models.experimental import attempt_load
-from yolo_v5.models.yolo import SegmentationModel
-from yolo_v5.utils.autoanchor import check_anchors
-from yolo_v5.utils.autobatch import check_train_batch_size
-from yolo_v5.utils.callbacks import Callbacks
-from yolo_v5.utils.downloads import attempt_download, is_url
-from yolo_v5.utils.general import (LOGGER, TQDM_BAR_FORMAT, check_amp, check_dataset, check_file, check_git_info,
+from yolov5.models.experimental import attempt_load
+from yolov5.models.yolo import SegmentationModel
+from yolov5.utils.autoanchor import check_anchors
+from yolov5.utils.autobatch import check_train_batch_size
+from yolov5.utils.callbacks import Callbacks
+from yolov5.utils.downloads import attempt_download, is_url
+from yolov5.utils.general import (LOGGER, TQDM_BAR_FORMAT, check_amp, check_dataset, check_file, check_git_info,
                            check_git_status, check_img_size, check_requirements, check_suffix, check_yaml, colorstr,
                            get_latest_run, increment_path, init_seeds, intersect_dicts, labels_to_class_weights,
                            labels_to_image_weights, one_cycle, print_args, print_mutation, strip_optimizer, yaml_save)
-from yolo_v5.utils.loggers import GenericLogger
-from yolo_v5.utils.plots import plot_evolve, plot_labels
-from yolo_v5.utils.segment.dataloaders import create_dataloader
-from yolo_v5.utils.segment.loss import ComputeLoss
-from yolo_v5.utils.segment.metrics import KEYS, fitness
-from yolo_v5.utils.segment.plots import plot_images_and_masks, plot_results_with_masks
-from yolo_v5.utils.torch_utils import (EarlyStopping, ModelEMA, de_parallel, select_device, smart_DDP, smart_optimizer,
+from yolov5.utils.loggers import GenericLogger
+from yolov5.utils.plots import plot_evolve, plot_labels
+from yolov5.utils.segment.dataloaders import create_dataloader
+from yolov5.utils.segment.loss import ComputeLoss
+from yolov5.utils.segment.metrics import KEYS, fitness
+from yolov5.utils.segment.plots import plot_images_and_masks, plot_results_with_masks
+from yolov5.utils.torch_utils import (EarlyStopping, ModelEMA, de_parallel, select_device, smart_DDP, smart_optimizer,
                                smart_resume, torch_distributed_zero_first)
 
 LOCAL_RANK = int(os.getenv('LOCAL_RANK', -1))  # https://pytorch.org/docs/stable/elastic/run.html

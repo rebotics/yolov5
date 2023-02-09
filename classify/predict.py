@@ -43,13 +43,13 @@ ROOT = FILE.parents[1]  # YOLOv5 root directory
 #     sys.path.append(str(ROOT))  # add ROOT to PATH
 ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
-from yolo_v5.models.common import DetectMultiBackend
-from yolo_v5.utils.augmentations import classify_transforms
-from yolo_v5.utils.dataloaders import IMG_FORMATS, VID_FORMATS, LoadImages, LoadScreenshots, LoadStreams
-from yolo_v5.utils.general import (LOGGER, Profile, check_file, check_img_size, check_imshow, check_requirements, colorstr, cv2,
+from yolov5.models.common import DetectMultiBackend
+from yolov5.utils.augmentations import classify_transforms
+from yolov5.utils.dataloaders import IMG_FORMATS, VID_FORMATS, LoadImages, LoadScreenshots, LoadStreams
+from yolov5.utils.general import (LOGGER, Profile, check_file, check_img_size, check_imshow, check_requirements, colorstr, cv2,
                            increment_path, print_args, strip_optimizer)
-from yolo_v5.utils.plots import Annotator
-from yolo_v5.utils.torch_utils import select_device, smart_inference_mode
+from yolov5.utils.plots import Annotator
+from yolov5.utils.torch_utils import select_device, smart_inference_mode
 
 
 @smart_inference_mode()

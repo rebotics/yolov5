@@ -40,12 +40,12 @@ ROOT = FILE.parents[0]  # YOLOv5 root directory
 # ROOT = ROOT.relative_to(Path.cwd())  # relative
 
 import export
-from yolo_v5.models.experimental import attempt_load
-from yolo_v5.models.yolo import SegmentationModel
+from yolov5.models.experimental import attempt_load
+from yolov5.models.yolo import SegmentationModel
 from segment.val import run as val_seg
-from yolo_v5.utils import notebook_init
-from yolo_v5.utils.general import LOGGER, check_yaml, file_size, print_args
-from yolo_v5.utils.torch_utils import select_device
+from yolov5.utils import notebook_init
+from yolov5.utils.general import LOGGER, check_yaml, file_size, print_args
+from yolov5.utils.torch_utils import select_device
 from val import run as val_det
 
 

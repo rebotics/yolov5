@@ -21,12 +21,12 @@ ROOT = FILE.parents[1]  # YOLOv5 root directory
 if platform.system() != 'Windows':
     ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
-from yolo_v5.models.common import *
-from yolo_v5.models.experimental import *
-from yolo_v5.utils.autoanchor import check_anchor_order
-from yolo_v5.utils.general import LOGGER, check_version, check_yaml, make_divisible, print_args
-from yolo_v5.utils.plots import feature_visualization
-from yolo_v5.utils.torch_utils import (fuse_conv_and_bn, initialize_weights, model_info, profile, scale_img, select_device,
+from yolov5.models.common import *
+from yolov5.models.experimental import *
+from yolov5.utils.autoanchor import check_anchor_order
+from yolov5.utils.general import LOGGER, check_version, check_yaml, make_divisible, print_args
+from yolov5.utils.plots import feature_visualization
+from yolov5.utils.torch_utils import (fuse_conv_and_bn, initialize_weights, model_info, profile, scale_img, select_device,
                                time_sync)
 
 try:
