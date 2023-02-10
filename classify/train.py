@@ -36,7 +36,7 @@ ROOT = FILE.parents[1]  # YOLOv5 root directory
 #     sys.path.append(str(ROOT))  # add ROOT to PATH
 ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
-from classify import val as validate
+from yolov5.classify import val as validate
 from yolov5.models.experimental import attempt_load
 from yolov5.models.yolo import ClassificationModel, DetectionModel
 from yolov5.utils.dataloaders import create_classification_dataloader
