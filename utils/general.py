@@ -413,6 +413,10 @@ def check_requirements(requirements=ROOT / 'requirements.txt', exclude=(), insta
             LOGGER.warning(f'{prefix} ❌ {e}')
 
 
+class MissingRequirement(Exception):
+    pass
+
+
 def check_img_size(imgsz, s=32, floor=0):
     # Verify image size is a multiple of stride s in each dimension
     if isinstance(imgsz, int):  # integer i.e. img_size=640
