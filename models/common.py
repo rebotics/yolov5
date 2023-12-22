@@ -27,9 +27,24 @@ from torch.cuda import amp
 
 from yolov5.utils import TryExcept
 from yolov5.utils.dataloaders import exif_transpose, letterbox
-from yolov5.utils.general import (LOGGER, ROOT, Profile, check_requirements, check_suffix, check_version, colorstr,
-                           increment_path, is_notebook, make_divisible, non_max_suppression, scale_boxes, xywh2xyxy,
-                           xyxy2xywh, yaml_load)
+from yolov5.utils.general import (
+    MissingRequirement,
+    LOGGER,
+    Profile,
+    ROOT,
+    check_requirements,
+    check_suffix,
+    check_version,
+    colorstr,
+    increment_path,
+    is_notebook,
+    make_divisible,
+    non_max_suppression,
+    scale_boxes,
+    xywh2xyxy,
+    xyxy2xywh,
+    yaml_load,
+)
 from yolov5.utils.plots import Annotator, colors, save_one_box
 from yolov5.utils.torch_utils import copy_attr, smart_inference_mode
 
@@ -363,9 +378,17 @@ class DetectMultiBackend(nn.Module):
             net = cv2.dnn.readNetFromONNX(w)
         elif onnx:  # ONNX Runtime
             LOGGER.info(f'Loading {w} for ONNX Runtime inference...')
-            check_requirements(('onnx', 'onnxruntime-gpu' if cuda else 'onnxruntime'))
-            import onnxruntime
             providers = ['CUDAExecutionProvider', 'CPUExecutionProvider'] if cuda else ['CPUExecutionProvider']
+            onnx_rt_package =  'onnxruntime-gpu' if cuda else 'onnxruntime'
+            try:
+                import onnxruntime
+                available_providers = set(onnxruntime.get_available_providers())
+                if not (set(providers) <= available_providers):
+                    LOGGER.info(f'ONNX providers {providers} are not found, available ones: {available_providers}')
+                    raise MissingRequirement()
+            except (ImportError, MissingRequirement):
+                check_requirements(('onnx', onnx_rt_package))
+                import onnxruntime
             session = onnxruntime.InferenceSession(w, providers=providers)
             output_names = [x.name for x in session.get_outputs()]
             meta = session.get_modelmeta().custom_metadata_map  # metadata
